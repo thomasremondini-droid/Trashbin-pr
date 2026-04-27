@@ -1,14 +1,18 @@
 
-const URL_RASPBERRY = "htttps://bidone-smart.bidone.com"
+const URL_RASPBERRY = "https://bidone-smart.bidone.com"
+const imgStream = document.getElementById
 
 // Funzione per aggiornare i contatori ogni secondo senza ricaricare la pagina
 function updateStats() {
-    fetch('/stats')
+    fetch(URL_RASPBERRY + '/stats')
         .then(response => {
             if (response.ok){
                 document.getElementById('offline-screen').style.display = 'none';
+                return response.json();
+            }else{
+                throw new Error("Offline");
             }
-            return response.json();
+            
         })
         .then(data => {
             //aggiorno i conteggi
