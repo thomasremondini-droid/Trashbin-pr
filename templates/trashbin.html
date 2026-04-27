@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Bin Dashboard</title>
+    <link rel="stylesheet" href="../static/css/trashbin_style.css">
+</head>
+<header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="meteo.html">Meteo</a></li>
+                <li><a href="trashbin.html">Contact</a></li>
+            </ul>
+        </nav>
+</header>
+<body>
+    
+    <h1>🗑️ Smart Bin Control Panel 🗑️</h1>
+    <div id="status-badge" class="online">SISTEMA ONLINE</div>
+
+    <div class="video-box">
+        <img src="{{ url_for('video_feed') }}" alt="Live Stream">
+        <div id="offline-screen" class="hidden">
+            <div class="overlay-content">
+                <p>⚠️ CAMERA FUORIUSO ⚠️</p>
+                <p>Camera Offline</p>
+                <p>Bidone Non Connesso</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Plastica</h2>
+            <div id="count-plastica" class="count">0</div>
+        </div>
+        <div class="card">
+            <h2>Carta</h2>
+            <div id="count-carta" class="count">0</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <h3>Comandi Manuali</h3>
+        <button class="btn btn-plastica " onclick="apriBin('plastica')">Apri Plastica</button>
+        <button class="btn btn-carta "onclick="apriBin('carta')">Apri Carta</button>
+    </div>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>
