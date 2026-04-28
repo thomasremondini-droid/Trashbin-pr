@@ -8,6 +8,7 @@ function updateStats() {
         .then(response => {
             if (response.ok){
                 document.getElementById('offline-screen').style.display = 'none';
+                document.getElementById('live-streem').style.display = 'block'; // Mostra video
                 return response.json();
             }else{
                 throw new Error("Offline");
@@ -39,7 +40,14 @@ function updateStats() {
         })
         .catch(error => {
             console.warn("Sistema Offline");
-            document.getElementById('offline-screen').style.display = 'flex';
+            document.getElementById('offline-screen').style.display = 'flex'; //Mostra avviso camera offline
+            document.getElementById('live-streem').style.display = 'none' //Rimuovo il video
+
+            //Disabilito anche i bottoni
+            btnPlastica.disabled = true;
+            btnCarta.disabled = true;
+            btnPlastica.style.opacity = "0.5";
+            btnCarta.style.opacity = "0.5";
         });
 }
 setInterval(updateStats, 1000); // Aggiorna ogni 1000ms
@@ -61,20 +69,20 @@ function apriBin(tipo) {
 
 
     // Quando userai Flask, questo manderà una richiesta al server
-    fetch('/apri/' + tipo)
+    fetch(URL_RASPBERRY + '/apri/' + tipo)
         .then(response => {
             if (!response.ok) {
                 console.error("Errore nell'apertura del cestino");
             }
         })
         .catch(error => {
-            console.warn("Server non trovato. Se sei in locale senza Flask, è normale.");
+            console.warn("Connessione con raspberry persa");
         })
         .finally(() => {
             setTimeout(()=>{
                 btnSelezionato.disabled = false;
                 btnSelezionato.style.opacity = "1";
                 console.log("bottone riattivato");
-            }, 1000);
+            }, 1000); //Aspettiamo 1sec per sicurezza
         });
 }
