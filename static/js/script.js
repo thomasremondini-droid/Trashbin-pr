@@ -1,6 +1,5 @@
 
 const URL_RASPBERRY = "https://bidone-smart.bidone.com"
-const imgStream = document.getElementById
 
 // Funzione per aggiornare i contatori ogni secondo senza ricaricare la pagina
 function updateStats() {
@@ -44,10 +43,12 @@ function updateStats() {
             document.getElementById('live-streem').style.display = 'none' //Rimuovo il video
 
             //Disabilito anche i bottoni
-            btnPlastica.disabled = true;
-            btnCarta.disabled = true;
-            btnPlastica.style.opacity = "0.5";
-            btnCarta.style.opacity = "0.5";
+            const bPlastica = document.querySelector(".btn-plastica");
+            const bCarta = document.querySelector(".btn-carta");
+            if (bPlastica) bPlastica.disabled = true;
+            if (bCarta) bCarta.disabled = true;
+            //btnPlastica.style.opacity = "0.5";
+            //btnCarta.style.opacity = "0.5";
         });
 }
 setInterval(updateStats, 1000); // Aggiorna ogni 1000ms
@@ -76,7 +77,7 @@ function apriBin(tipo) {
             }
         })
         .catch(error => {
-            console.warn("Connessione con raspberry persa");
+            console.error("Errore connessione:",error);
         })
         .finally(() => {
             setTimeout(()=>{
