@@ -1,5 +1,5 @@
 
-const URL_RASPBERRY = "https://bidone-smart.bidone.com"
+const URL_RASPBERRY = "https://not-matching-peoples-asin.trycloudflare.com"
 
 // Funzione per aggiornare i contatori ogni secondo senza ricaricare la pagina
 function updateStats() {
