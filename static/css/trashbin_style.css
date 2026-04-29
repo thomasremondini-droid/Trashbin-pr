@@ -52,6 +52,25 @@ h1{
     margin-top: 35px;
     color: #2c3e50;
 }
+#status-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+.online {
+    background-color: #28a745; /* Verde */
+    color: white;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+.offline {
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+    animation: pulse 1.5s infinite; /* Effetto pulsante per attirare l'attenzione */
+}
 .container{
     display: flex;
     flex-wrap: wrap;
@@ -150,4 +169,9 @@ h1{
     font-size: 1.2rem;
     letter-spacing: 2px;
     
+}
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
 }
