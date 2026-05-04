@@ -3,17 +3,18 @@ const URL_RASPBERRY = "https://il-mio-bidone-unico.serveousercontent.com"
 
 // Funzione per aggiornare i contatori ogni secondo senza ricaricare la pagina
 function updateStats() {
-    const controller = new AbortController
-    const timeoutId = new setTimeout(() => controller.abort(), 3000); //Time out di 3 secondi
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000); //Time out di 3 secondi
     fetch(URL_RASPBERRY + '/stats', {signal: controller.signal})
         .then(response => {
-            if (response.ok){
-                //Logica per impostare ONLINE
-                document.getElementById('offline-screen').style.display = 'none';
-                document.getElementById('live-streem').style.display = 'block'; // Mostra video
+            clearTimeout(timeoutId);
+            
+            const contentType = response.headers.get("content-type");
+            if (response.ok && contentType && contentType.includes("application/json")) {
                 return response.json();
-            }else{
-                throw new Error("Offline");
+            } else {
+                // Se non è JSON, è un errore di Serveo (502/404), quindi OFFLINE
+                throw new Error("Dati non validi - Sistema Offline");
             }
             
         })
@@ -23,6 +24,10 @@ function updateStats() {
             badge.innerText = "SISTEMA ONLINE";
             badge.classList.remove('offline');
             badge.classList.add('online');
+
+            document.getElementById("offline-screen").style.display = 'none';
+            document.getElementById('live-streem').style.display = 'block';
+
             //aggiorno i conteggi
             document.getElementById('count-plastica').innerText = data.plastica;
             document.getElementById('count-carta').innerText = data.carta;
