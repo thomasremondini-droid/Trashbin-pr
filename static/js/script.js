@@ -1,5 +1,5 @@
 
-const URL_RASPBERRY = "https://refuse-organ-concept-beer.trycloudflare.com"
+const URL_RASPBERRY = "https://il-mio-bidone-unico.serveousercontent.com"
 
 // Funzione per aggiornare i contatori ogni secondo senza ricaricare la pagina
 function updateStats() {
