@@ -5,7 +5,7 @@
     padding: 10px;
     position: fixed;
     top: 0;
-    left: 0 ;
+    left: 0;
     background-image: url(../images/Flag4.svg.png);
     background-position: center;
     background-size: contain;
@@ -15,12 +15,15 @@
 .navbar ul{
     list-style-type: none;
     margin: 0;
+    gap: 26px;
     padding: 0px;
     display: flex;
-    justify-content: center ;
+    justify-content: center;
+    
 }
 .navbar li{
-    margin: 0 20px;
+    margin: 10px;
+    gap: 20px;
     font-size: 1.5rem;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
    
@@ -37,19 +40,23 @@
     text-shadow: 30px;
 }
 .navbar a:hover{
-    color: #203ea3;
+    color:  #203ea3;
     text-decoration: none;
+    
+}
+html {
+  scroll-behavior: smooth;
 }
 body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    scroll-behavior: smooth;
     text-align: center;
     background-color: #f4f4f9;
     color: #333;
     margin: 0;
-    padding: 20px;
 }
 h1{
-    margin-top: 35px;
+    padding-top: 60px;
     color: #2c3e50;
 }
 #status-badge {

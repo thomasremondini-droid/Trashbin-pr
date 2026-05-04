@@ -4,6 +4,8 @@
     color: #f6f6f6;
     padding: 10px;
     position: fixed;
+    top: 0;
+    left: 0;
     background-image: url(../images/Flag4.svg.png);
     background-position: center;
     background-size: contain;
@@ -14,12 +16,14 @@
     list-style-type: none;
     margin: 0;
     padding: 0px;
+    gap: 26px;
     display: flex;
     justify-content: center;
     
 }
 .navbar li{
-    margin: 0 20px;
+    margin: 10px;
+    gap: 20px;
     font-size: 1.5rem;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
    
@@ -146,18 +150,9 @@ footer{
     width: 100%;
 }
 @media (max-width: 768px){
-    .navbar ul{
-        flex-direction: column;
-    }
     .navbar li{
         margin: 10px 0;
-    }
-    .navbar li:hover{
-        background-color: #cc1414;
-        
-    }
-    .navbar a:hover{
-        color: white;
+        margin: 20px;
     }
     h1{
         font-size: 2.5rem;
