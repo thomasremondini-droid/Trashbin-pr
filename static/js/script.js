@@ -3,9 +3,12 @@ const URL_RASPBERRY = "https://il-mio-bidone-unico.serveousercontent.com"
 
 // Funzione per aggiornare i contatori ogni secondo senza ricaricare la pagina
 function updateStats() {
-    fetch(URL_RASPBERRY + '/stats')
+    const controller = new AbortController
+    const timeoutId = new setTimeout(() => controller.abort(), 3000); //Time out di 3 secondi
+    fetch(URL_RASPBERRY + '/stats', {signal: controller.signal})
         .then(response => {
             if (response.ok){
+                //Logica per impostare ONLINE
                 document.getElementById('offline-screen').style.display = 'none';
                 document.getElementById('live-streem').style.display = 'block'; // Mostra video
                 return response.json();
@@ -43,7 +46,10 @@ function updateStats() {
             }
         })
         .catch(error => {
+            clearTimeout(timeoutId);
             console.warn("Sistema Offline");
+
+            //Logica per impostare OFFLINE
             document.getElementById('offline-screen').style.display = 'flex'; //Mostra avviso camera offline
             document.getElementById('live-streem').style.display = 'none' //Rimuovo il video
             const badge = document.getElementById('status-badge');
