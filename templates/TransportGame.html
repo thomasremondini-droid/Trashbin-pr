@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erasmus Darmstadt 2026</title>
+    <link rel="stylesheet" href="../static/css/game.css">
+</head>
+<header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="meteo.html">Meteo</a></li>
+                <li><a href="trashbin.html">Trashbin</a></li>
+                <li><a href="TransportGame.html">Game</a></li>
+            </ul>
+        </nav>
+</header>
+<body>
+    <main>
+        <h1>Riciclo in Tilt!</h1>
+        <p>Trova il percorso giusto</p>
+        <div id="controlli">
+            <button class="btn-diff" onclick="creaGriglia(3)">Facile (3x3)</button>
+            <button class="btn-diff" onclick="creaGriglia(5)">Medio (5x5)</button>
+            <button class="btn-diff" onclick="creaGriglia(7)">Difficile (7x7)</button>
+            <button class="btn-diff" onclick="verificaPercorso()"style="background-color: #3498; color: white;">Verifica Percorso 🚀</button>
+        </div>
+        
+        <div id="gioco-container"></div>
+
+
+
+
+
+        
+    </main>
+    <script src="../static/js/game.js"></script>
+    <div>
+    <footer>
+        <p>&copy; 2026 Erasmus Darmstadt. All rights reserved.</p>
+    </footer>
+    
+</body>
+
+</html>

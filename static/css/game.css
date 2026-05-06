@@ -1,0 +1,169 @@
+.navbar{
+    background-color: #5459b9;
+    width: 100%;
+    color: #f6f6f6;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0 ;
+    background-image: url(../images/Flag4.svg.png);
+    background-position: center;
+    background-size: contain;
+    z-index: 1000;
+    
+}
+.navbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    gap: 26px;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: center;
+}
+.navbar li{
+    margin: 10px;
+    gap: 20px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+   
+}
+.navbar li:hover{
+    transform: scale(1.2);
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    text-shadow: black;
+    text-shadow: 30px;
+}
+.navbar a:hover{
+    color: #203ea3;
+    text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body{
+    padding-top:60px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #2c3e50;
+    color: white;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+    justify-content: center;
+    align-items: center;
+    min-height: 100;
+}
+h1, h2, p {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+h1 { color: #f1c40f; text-transform: uppercase; margin-bottom: 5px; }
+p { color: #bdc3c7; margin-bottom: 30px; }
+
+#gioco-container{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--colonne, 3) ,100px);
+    gap: 5px;
+    background-color: #2c3e50;
+    padding: 20px;
+    margin: 50px auto;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    width: fit-content;
+    border-radius: 9px;
+    border: 4px solid #d2d5d5;
+}
+#rifiuto-animato {
+    position: absolute; /* Permette il movimento via left/top */
+    transition: all 0.4s ease-in-out; /* Rende il movimento fluido */
+    z-index: 10; /* Lo tiene sopra i tubi */
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes scorri{
+    from{
+        stroke-dashoffset: 30; 
+    }
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+.animato{
+    animation: scorri 1s linear infinite;
+}
+.pezzo{
+    width: 100px;
+    height: 100px;
+    background-color: #34495e;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.nastro-svg{
+    width: 100%;
+    height: 100%;
+}
+.pezzo:hover {
+    background-color: #3e5871;
+}
+#controlli{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.btn-diff{
+    transition: 0.3s;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    font-size: large;
+}
+.btn-diff:hover{
+    transform: scale(1.1);
+    background-color: #f39c12
+}
+.start {
+    background-color: #27ae60 !important;
+    color: white;
+    font-weight: bold;
+    cursor: default !important;
+}
+.end {
+    background-color: #e67e22 !important;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    cursor: default !important;
+}
+
+
+
+footer{
+    margin-top: 20px;
+    background-color: #5459b9;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
