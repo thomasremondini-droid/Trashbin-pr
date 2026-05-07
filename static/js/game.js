@@ -4,12 +4,12 @@
 const nastroDritto = `
     <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
         <line x1="0" y1="50" x2="100" y2="50" stroke="#222" stroke-width="20"/>
-        <line x1="0" y1="50" x2="100" y2="50" stroke="#f1c40f" stroke-width="20" stroke-dasharray="15 15" class="animato"/>
+        <line x1="0" y1="50" x2="100" y2="50" stroke="#676767" stroke-width="20" stroke-dasharray="15 15" class="animato"/>
     </svg>`;
 const nastroCurvo = `
     <svg viewBox="0 0 100 100" class="nastro-svg">
         <path d="M 50 0 A 50 50 0 0 0 100 50" fill="none" stroke="#222" stroke-width="24" />
-        <path d="M 50 0 A 50 50 0 0 0 100 50" fill="none" stroke="#f1c40f" stroke-width="20" stroke-dasharray="15 15" class="animato" />
+        <path d="M 50 0 A 50 50 0 0 0 100 50" fill="none" stroke="#676767" stroke-width="20" stroke-dasharray="15 15" class="animato" />
     </svg>`;
 
 function creaGriglia(dimensione) {

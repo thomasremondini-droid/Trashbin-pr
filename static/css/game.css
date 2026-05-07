@@ -67,6 +67,11 @@ h1, h2, p {
 h1 { color: #f1c40f; text-transform: uppercase; margin-bottom: 5px; }
 p { color: #bdc3c7; margin-bottom: 30px; }
 
+.testi{
+    text-align: center;
+    justify-content: center;
+}
+
 #gioco-container{
     position: relative;
     display: grid;
