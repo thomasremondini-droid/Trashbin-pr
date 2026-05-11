@@ -152,7 +152,7 @@ footer{
 @media (max-width: 768px){
     .navbar li{
         margin: 10px 0;
-        margin: 20px;
+        font-size: medium;
     }
     h1{
         font-size: 2.5rem;

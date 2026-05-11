@@ -148,3 +148,21 @@ body{
 }
 
 
+@media (max-width: 768px){
+    .navbar li{
+        margin: 10px 0;
+        font-size: medium;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    h2{
+        font-size: 1.2rem;
+    }
+    .settimana{
+        max-width:100%;
+    }
+    .mosaico{
+        max-width: 100%;
+    }
+}
