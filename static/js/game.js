@@ -31,7 +31,7 @@ function creaGriglia(dimensione) {
 
         if (i === 0) {
             nuovoPezzo.classList.add("start");
-            nuovoPezzo.innerHTML = "INIZIO";
+            nuovoPezzo.innerHTML = "TRASH";
         } else if (i === totalPezzi - 1) {
             nuovoPezzo.classList.add("end");
             nuovoPezzo.innerHTML = "🗑️";
@@ -256,9 +256,9 @@ function avviaAnimazione(path, dim, successo) {
             // Fine del percorso
             setTimeout(() => {
                 if (successo) {
-                    alert("Rifiuto riciclato con successo! 🎉");
+                    alert("Trash recycled successfully! 🎉");
                 } else {
-                    alert("Ops... c'é un problema con i nastri trasportatori!🚚");
+                    alert("Ops... There is a problem with the conveyor belt 🚚");
                     // Riporta il rifiuto all'inizio in caso di errore
                     rifiuto.style.left = (cellaInizio.offsetLeft + 25) + "px";
                     rifiuto.style.top = (cellaInizio.offsetTop + 25) + "px";

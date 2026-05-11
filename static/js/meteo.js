@@ -10,7 +10,7 @@ function updateClock() {
     // Se c'è l'elemento 'date' nell'HTML, lo aggiorna
     const dateEl = document.getElementById('date');
     if(dateEl) {
-        dateEl.innerText = now.toLocaleDateString('it-IT', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        dateEl.innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
 }
 setInterval(updateClock, 1000);
@@ -75,9 +75,9 @@ async function getWeatherData() {
             if (count >= 7) break; // Vogliamo solo i 7 giorni successivi
             
             const dateObj = new Date(dateString);
-            const dayName = dateObj.toLocaleDateString('it-IT', { weekday: 'long'});
+            const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'long'});
             const dayCap = dayName.charAt(0).toUpperCase() + dayName.slice(1); // Mette la prima lettera maiuscola (es: "Sab")
-            const dayDate = dateObj.toLocaleDateString('it-IT',{day: 'numeric', month: 'long'})
+            const dayDate = dateObj.toLocaleDateString('en-US',{day: 'numeric', month: 'long'})
 
             const maxTemp = dayData.temp;
             const condition = dayData.icon.toLowerCase();

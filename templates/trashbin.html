@@ -21,14 +21,13 @@
     
     <h1>🗑️ Smart Bin Control Panel 🗑️</h1>
     <div class="colonna">
-        <div id="status-badge" class="online">SISTEMA ONLINE</div>
+        <div id="status-badge" class="online">STATUS ONLINE</div>
         <div class="video-box">
             <img id="live-streem" src="https://hughes-collections-reservoir-come.trycloudflare.com" onerror="this.src='https://hughes-collections-reservoir-come.trycloudflare.com/video_feed?' + new Date().getTime();" style="display: none;" alt="Live Stream">
             <div id="offline-screen">
                 <div class="overlay-content">
-                    <p>⚠️ CAMERA FUORIUSO ⚠️</p>
-                    <p>Camera Offline</p>
-                    <p>Bidone Non Connesso</p>
+                    <p>⚠️ CAMERA OFFLINE ⚠️</p>
+                    <p>Trashbin is not connected</p>
                 </div>
             </div>
         </div>
@@ -36,19 +35,19 @@
 
     <div class="container">
         <div class="card">
-            <h2>Plastica</h2>
+            <h2>Plastic</h2>
             <div id="count-plastica" class="count">0</div>
         </div>
         <div class="card">
-            <h2>Carta</h2>
+            <h2>Paper</h2>
             <div id="count-carta" class="count">0</div>
         </div>
     </div>
 
     <div class="controls">
-        <h3>Comandi Manuali</h3>
-        <button class="btn btn-plastica " onclick="apriBin('plastica')">Apri Plastica</button>
-        <button class="btn btn-carta "onclick="apriBin('carta')">Apri Carta</button>
+        <h3>Manual Controls</h3>
+        <button class="btn btn-plastica " onclick="apriBin('plastica')">Open Plastic</button>
+        <button class="btn btn-carta "onclick="apriBin('carta')">Open Paper</button>
     </div>
 
     <script src="../static/js/script.js"></script>

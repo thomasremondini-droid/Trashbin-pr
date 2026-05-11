@@ -21,7 +21,7 @@ function updateStats() {
         .then(data => {
             // SISTEMA ONLINE: Mostro video, nascondo errore
             const badge = document.getElementById('status-badge');
-            badge.innerText = "SISTEMA ONLINE";
+            badge.innerText = "STATUS ONLINE";
             badge.classList.remove('offline');
             badge.classList.add('online');
 
@@ -58,7 +58,7 @@ function updateStats() {
             document.getElementById('offline-screen').style.display = 'flex'; //Mostra avviso camera offline
             document.getElementById('live-streem').style.display = 'none' //Rimuovo il video
             const badge = document.getElementById('status-badge');
-            badge.innerText = "SISTEMA OFFLINE";
+            badge.innerText = "STATUS OFFLINE";
             badge.classList.remove('online');
             badge.classList.add('offline');
 
