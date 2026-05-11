@@ -1,0 +1,150 @@
+.navbar{
+    background-color: #5459b9;
+    width: 100%;
+    color: #f6f6f6;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0 ;
+    background-image: url(../images/Flag4.svg.png);
+    background-position: center;
+    background-size: contain;
+    z-index: 1000;
+    
+}
+.navbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    gap: 26px;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: center;
+}
+.navbar li{
+    margin: 10px;
+    gap: 20px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+   
+}
+.navbar li:hover{
+    transform: scale(1.2);
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    text-shadow: black;
+    text-shadow: 30px;
+}
+.navbar a:hover{
+    color: #203ea3;
+    text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: 5px; 
+    color: #e67e22; 
+    text-align: center;
+    color: #2c3e50;
+}
+        
+h2 { 
+    margin-bottom: 30px; 
+    font-weight: 300; 
+    text-align: center;
+    color: #2c3e50;
+}
+body{
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding:  100px 20px 20px 20px; 
+}
+/* animazione per la comparsa della descrizione */
+@keyframes comparsa {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+}
+.settimana {
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+.mosaico{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(140px, 1fr));
+    grid-auto-flow: dense; /* rimuove spazi vuoti nel mosaico */
+    grid-auto-rows: 140px;
+    gap: 12px;
+    
+}
+.foto{
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #e0e0e0; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+            box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.foto:hover{
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    z-index: 10; /* Porta la foto in primo piano durante l'effetto */
+}
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita che le foto si deformino */
+    display: block;
+    transition: transfrom 0.4s ease;
+
+    image-rendering: -webkit-optimize-contrast; /* Per browser basati su WebKit/Blink */
+    image-rendering: crisp-edges;               /* Per Firefox */
+    image-rendering: auto;
+}
+.foto:hover img {
+    transform: scale(1.05);
+}
+
+.foto.grande { 
+    grid-column: span 3; 
+    grid-row: span 3; 
+}
+.foto.media { 
+    grid-column: span 2; 
+    grid-row: span 2; 
+}
+.piccola { 
+    grid-column: span 1; 
+    grid-row: span 1;
+}
+.foto.larga{ 
+    grid-column: span 3; 
+    grid-column: span 2;
+}
+.foto.menolarga{ 
+    grid-column: span 3; 
+}
+.foto.altina{
+    grid-row: span 2;
+}
+.foto.alta {
+    grid-row: span 3; 
+}
+
+

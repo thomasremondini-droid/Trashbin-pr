@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Erasmus - Bidone Smart</title>
+    <style>
+        /* STILI BASE VIVACI */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 5px; color: #e67e22; }
+        h2 { margin-bottom: 30px; font-weight: 300; }
+
+        .settimana {
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* LA MAGIA DEL MOSAICO (CSS GRID) */
+        .mosaico {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-auto-rows: 150px;
+            gap: 15px;
+            /* Questa è la proprietà che incastra tutto senza spazi vuoti */
+            grid-auto-flow: dense; 
+        }
+
+        .foto-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .foto-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Evita che le foto si deformino */
+            display: block;
+        }
+
+        .foto-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        /* DIMENSIONI SFALSATE PER LE FOTO */
+        .grande { grid-column: span 2; grid-row: span 2; }
+        .larga { grid-column: span 2; grid-row: span 1; }
+        .alta { grid-column: span 1; grid-row: span 2; }
+        .piccola { grid-column: span 1; grid-row: span 1; }
+
+        /* STILE DELLA TENDINA (MODAL) */
+        .modal {
+            display: none; /* Nascosto di default */
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            animation: comparsa 0.3s ease-out;
+        }
+
+        @keyframes comparsa {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chiudi-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .chiudi-btn:hover { color: #e74c3c; }
+        
+        #modal-titolo { color: #2980b9; margin-top: 0; }
+        #modal-testo { line-height: 1.6; }
+
+    </style>
+</head>
+<body>
+
+    <h1>Progetto Smart Bin</h1>
+    <h2>Diario di Bordo Erasmus</h2>
+
+    <section class="settimana">
+        <h2>Settimana 1: Ideazione e Primi Cablaggi</h2>
+        
+        <div class="mosaico">
+            <div class="foto-item grande" onclick="apriTendina('Il Cervello del Bidone', 'Qui stavamo collegando i primi cavi. Abbiamo testato i bottoni per assicurarci che il microcontrollore ricevesse il segnale corretto.')">
+                <img src="https://picsum.photos/400/400?random=1" alt="Foto Progetto">
+            </div>
+            
+            <div class="foto-item piccola" onclick="apriTendina('Schema su Carta', 'Prima di programmare, abbiamo disegnato tutta la logica del gioco su un foglio.')">
+                <img src="https://picsum.photos/200/200?random=2" alt="Foto Progetto">
+            </div>
+
+            <div class="foto-item larga" onclick="apriTendina('Test della Fotocamera', 'Un successo! La fotocamera riconosce finalmente gli oggetti che le mettiamo davanti.')">
+                <img src="https://picsum.photos/400/200?random=3" alt="Foto Progetto">
+            </div>
+
+            <div class="foto-item alta" onclick="apriTendina('Pausa Caffè', 'Lavorare al codice stanca... ecco il team durante una meritata pausa!')">
+                <img src="https://picsum.photos/200/400?random=4" alt="Foto Progetto">
+            </div>
+
+            <div class="foto-item piccola" onclick="apriTendina('Primi LED', 'Luce! Il feedback visivo del bidone smart inizia a prendere forma.')">
+                <img src="https://picsum.photos/200/200?random=5" alt="Foto Progetto">
+            </div>
+            
+             <div class="foto-item grande" onclick="apriTendina('Il Team al Lavoro', 'Tutti concentrati per finire la prima milestone della settimana.')">
+                <img src="https://picsum.photos/400/400?random=6" alt="Foto Progetto">
+            </div>
+        </div>
+    </section>
+
+    <div id="la-mia-tendina" class="modal">
+        <div class="modal-content">
+            <span class="chiudi-btn" onclick="chiudiTendina()">&times;</span>
+            <h3 id="modal-titolo">Titolo</h3>
+            <p id="modal-testo">Testo descrittivo qui...</p>
+        </div>
+    </div>
+
+    <script>
+        // Funzione per aprire la tendina e caricare i testi
+        function apriTendina(titolo, descrizione) {
+            document.getElementById("modal-titolo").innerText = titolo;
+            document.getElementById("modal-testo").innerText = descrizione;
+            document.getElementById("la-mia-tendina").style.display = "flex";
+        }
+
+        // Funzione per chiudere la tendina
+        function chiudiTendina() {
+            document.getElementById("la-mia-tendina").style.display = "none";
+        }
+
+        // Chiudi la tendina anche se l'utente clicca fuori dal riquadro bianco
+        window.onclick = function(event) {
+            let modal = document.getElementById("la-mia-tendina");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
